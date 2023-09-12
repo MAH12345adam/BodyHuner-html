@@ -7,6 +7,7 @@
 body {
   background-color: #343b51;
   font-family: "Inter", sans-serif;
+  cursor: default;
 }
 
 img {
@@ -34,7 +35,7 @@ img {
 }
 
 .header__info {
-  width: 305px;
+  min-width: 305px;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -45,6 +46,7 @@ img {
 .header__logo {
   width: 80px;
   height: 80px;
+  margin-right: 20px;
 }
 
 .header__logo img {
@@ -86,6 +88,7 @@ img {
   padding: 30px;
   border-radius: 10px;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 /* search-space start */
@@ -115,6 +118,7 @@ img {
   font-size: 15px;
   border-radius: 5px;
   padding: 0 10px 0 10px;
+  cursor: text;
 }
 
 /* search-space end */
@@ -190,13 +194,18 @@ img {
 /* pagination start */
 
 .pagination__container {
-  width: 480px;
+  width: 600px;
   height: 35px;
+  margin: 0 auto;
+  color: #fbf9f9;
+}
+
+.pagination__blocks {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  color: #fbf9f9;
 }
 
 .pagination__block {
@@ -206,20 +215,19 @@ img {
   height: 35px;
   font-size: 15px;
   line-height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
-.left-arr {
-  background-color: #343b51;
-  width: 35px;
-  height: 35px;
-  padding: 10px;
-}
-
+.left-arr,
 .right-arr {
   background-color: #343b51;
   width: 35px;
   height: 35px;
   padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0 20px 0 20px;
 }
 
 /* pagination end */
