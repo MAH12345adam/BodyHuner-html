@@ -259,6 +259,7 @@ h5 {
   font-weight: 400;
   color: white;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 /* cart-bot end */
