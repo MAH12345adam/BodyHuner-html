@@ -84,6 +84,10 @@ h5 {
   cursor: pointer;
 }
 
+.header__btn:active {
+  margin-top: 2px;
+}
+
 .header__back {
   width: 24px;
   height: 24px;
@@ -125,9 +129,17 @@ h5 {
 }
 
 .cart-head__rmv-btn {
+  width: 230px;
   display: flex;
   align-items: center;
+  padding: 12px 22px;
+  background-color: #343b51;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  border-radius: 10px;
   cursor: pointer;
+  height: 52px;
 }
 
 .cart-head__rmv-logo {
@@ -135,10 +147,10 @@ h5 {
 }
 
 .cart-head__rmv-all {
-  color: #5f5f5f;
   font-size: 20px;
   font-weight: 400;
-  margin-right: 30px;
+  text-align: center;
+  width: 100%;
 }
 
 .cart-head__line {
@@ -153,7 +165,13 @@ h5 {
 /* cart-products start */
 
 .cart-products__container {
-  max-width: 800px;
+  max-width: 810px;
+  height: 560px;
+  overflow: auto;
+}
+
+.cart-products__container::-webkit-scrollbar {
+  width: 0;
 }
 
 .cart-products__item-flex {
@@ -260,6 +278,303 @@ h5 {
   color: white;
   border-radius: 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 /* cart-bot end */
+
+/* adaptive start */
+
+@media (max-width: 1315px) {
+  .header__container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .cart-products__item-flex {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+  }
+
+  .cart-products__item-flex {
+    margin-bottom: 30px;
+  }
+
+  .cart-products__center {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .cart-products__name {
+    width: 200px;
+  }
+
+  .cart-space {
+    width: 100%;
+  }
+
+  .cart-head__info {
+    margin-bottom: 20px;
+  }
+
+  .cart-head__line,
+  .cart-products__line {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 750px) {
+  .cart-products__sum,
+  .cart-products__quantity {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cart-products__img {
+    display: none;
+  }
+
+  .header__btn {
+    width: 50px;
+  }
+
+  .header__btn p {
+    display: none;
+  }
+}
+
+@media (max-width: 610px) {
+  .cart-bot__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cart-head__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart-bot__btn {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 535px) {
+  .header__desc {
+    display: none;
+  }
+
+  .cart-products__quantity {
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  .cart-products__name {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .cart-products__item-flex {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 200px;
+  }
+
+  .cart-products__center {
+    flex-direction: row;
+    justify-content: center;
+    height: 55px;
+  }
+
+  .cart-products__right {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart-products__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 235px;
+  }
+
+  .cart-products__rmv {
+    margin: 0;
+  }
+}
+
+/* adaptive end */
+
+.modal {
+  position: fixed; /* фиксированное положение */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* цвет фона */
+  z-index: 1050;
+  opacity: 0; /* по умолчанию модальное окно прозрачно */
+  -webkit-transition: opacity 200ms ease-in;
+  -moz-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in; /* анимация перехода */
+  pointer-events: none; /* элемент невидим для событий мыши */
+  margin: 0;
+  padding: 0;
+}
+/* при отображении модального окно */
+.modal:target {
+  opacity: 1; /* делаем окно видимым */
+  pointer-events: auto; /* элемент видим для событий мыши */
+  overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 500px;
+    margin: 30px auto; /* для отображения модального окна по центру */
+  }
+}
+/* свойства для блока, содержащего контент модального окна */
+.modal-content {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+@media (min-width: 768px) {
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+/* свойства для заголовка модального окна */
+.modal-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: 1px solid #eceeef;
+}
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+/* свойства для кнопки "Закрыть" */
+.close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus,
+.close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.75;
+}
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-choice {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 15px;
+  overflow: auto;
+  border-bottom: 1px solid #eceeef;
+  margin-bottom: 20px;
+}
+
+.modal-choice div {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.chat {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #343b51;
+  padding: 10px 23px;
+}
+
+.call {
+  cursor: pointer;
+  margin: 0 auto;
+  width: 180px;
+  text-align: center;
+  background-color: #343b51;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+
+.modal-choice a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.modal-content {
+  padding: 15px;
+}
+
+.modal-body__total-sum {
+  margin-top: 20px;
+}
+
+.modal-body__copy {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.modal-body-flex {
+  display: flex;
+  justify-content: space-between;
+}

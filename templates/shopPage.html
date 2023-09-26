@@ -40,19 +40,15 @@
           <section class="search-space">
             <div class="search-space__container">
               <div class="search-space__sort-search-space">
-                <div class="search-space__sort-block">
-                  <div class="search-space__sort-logo">
-                    <img src="/assets/svg/sort.svg" alt="" />
-                  </div>
-                  <p>сортировка по цене:</p>
-                  <select>
-                    <option>по умолчанию</option>
-                    <option>от большего</option>
-                    <option>от меньшего</option>
-                  </select>
-                </div>
                 <div class="search-space__search-block">
-                  <input placeholder="Введите название продукта..." class="search-space__input" type="text" />
+                  <form action="/search" method="get">
+                    <input placeholder="Введите название продукта..." required="" name="q" class="search-space__input"
+                      type="text">
+                    <div class="form-flex">
+                      <a href="{% url 'main' %}">Назад</a>
+                      <button type="submit">Найти</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

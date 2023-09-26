@@ -46,9 +46,9 @@
                 <h2 class="cart-head__cart-title">Корзина</h2>
               </div>
               <div class="cart-head__rmv-btn">
-                <div class="cart-head__rmv-logo">
+                <!-- <div class="cart-head__rmv-logo">
                   <img src="/assets/svg/trash.svg" alt="" />
-                </div>
+                </div> -->
                 <p class="cart-head__rmv-all">Очистить все</p>
               </div>
             </div>
@@ -173,13 +173,49 @@
           <section class="cart-bot">
             <div class="cart-bot__container">
               <p class="cart-bot__totaly-sum">Общая сумма: 1394₽</p>
-              <div class="cart-bot__btn">Перейти к оплате</div>
+              <a class="cart-bot__btn" href="#openModal">Завершить</a>
+            </div>
+          </section>
+          <section>
+            <div id="openModal" class="modal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title">Выбор связи</h3>
+                    <a href="#close" title="Close" class="close">×</a>
+                  </div>
+                  <div class="modal-choice">
+                    <div>
+                      <p class="chat"><a target="_blank" href="">Написать в WhatsApp</a></p>
+                      <p class="chat"><a target="_blank" href="">Написать в Telegram</a></p>
+                    </div>
+                    <p class="call"><a target="_blank" href="">Звонок на прямую</a></p>
+                  </div>
+                  <div class="modal-body">
+                    <div class="modal-body-flex">
+                      <div class="modal-body__info">
+                        <p class="modal-product"><b>Биодрон:</b> <br /> кол-во: 1шт \ цена: 499₽</p>
+                        <p class="modal-product"><b>Биодрон:</b> <br /> кол-во: 2шт \ цена: 499₽</p>
+                        <p class="modal-product"><b>Биодрон:</b> <br /> кол-во: 5шт \ цена: 499₽</p>
+                        <p class="modal-product"><b>Биодрон:</b> <br /> кол-во: 18шт \ цена: 4979₽</p>
+                        <p class="modal-product"><b>Биодрон:</b> <br /> кол-во: 1шт \ цена: 499₽</p>
+                        <p class="modal-product"><b>Биодрон:</b> <br /> кол-во: 3шт \ цена: 500₽</p>
+                      </div>
+                      <div class="modal-body__copy">
+                        <img src="/assets/svg/Copy.svg" alt="">
+                      </div>
+                    </div>
+                    <p class="modal-body__total-sum">Всего: <b>1367₽</b></p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </main>
       </div>
     </div>
   </div>
+  <script src="/js/script.js"></script>
 </body>
 
 </html>
